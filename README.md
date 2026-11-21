@@ -1,76 +1,50 @@
-# Discover Nice
+# Discover Nice 🇫🇷
 
-Web wisata **Nice, C&ocirc;te d'Azur, Prancis**: jelajahi tempat, lihat jam bukanya, lalu susun dan bagikan rencana perjalananmu.
+> A modern travel guide and interactive itinerary planner for Nice, French Riviera.
 
-Final Project Study Club Front End Basic, KSM Veterantech UPNVJ.
-Dibuat oleh **Naura Belva Qonita**.
+Proyek Akhir **Study Club Front End Basic — KSM Veterantech UPNVJ**  
+Dibuat oleh: **Naura Belva Qonita** (S1 Sistem Informasi 2024)
 
-## Halaman
+---
 
-| Halaman | File | Isi |
-|---|---|---|
-| Home | `index.html` | Hero, fakta singkat, tentang Nice, tempat populer, itinerary terpopuler |
-| Explore | `explore.html` | Galeri foto bergaya masonry, pencarian, filter kategori, tampilan peta (Leaflet) dengan pin per kategori, detail tempat (jam buka, status buka/tutup sekarang, harga, tips), tombol tambah ke draft itinerary |
-| Itinerary | `itinerary.html` | Jelajahi itinerary pengunjung, buat dan bagikan, suka, komentar, simpan, salin dan ubah |
-| Contact | `contact.html` | Form kontak dengan validasi Bootstrap |
+## 📖 Ringkasan Halaman & Fitur
 
-Fitur di semua halaman: navbar responsif (hamburger di HP), mode malam yang tersimpan, semantic HTML (`header`, `nav`, `main`, `footer`), dan tautan lewati ke konten.
+| Halaman | File | Fitur Utama |
+| :--- | :--- | :--- |
+| 🏠 **Home** | `index.html` | Hero sinematik dengan Call-to-Action, ringkasan fakta kota Nice, galeri *photo-tiles* tempat populer, dan rekomendasi itinerary terpopuler dari komunitas. |
+| 🧭 **Explore** | `explore.html` | Galeri foto dinamis (*Pinterest masonry*), filter pencarian teks & kategori, peta interaktif **Leaflet.js** dengan pin custom, modal detail tempat (jam buka real-time Nice, tiket masuk, tips), dan tautan langsung ke Google Maps. |
+| 🗓️ **Itinerary** | `itinerary.html` | Tab **Browse** (eksplorasi, likes, komentar), Tab **Create** (builder fleksibel *Day-by-Day* atau *Curated List* dengan auto-kalkulasi biaya tiket), fitur **Copy & Edit**, dan Tab **Saved** (penyimpanan favorit lokal). |
+| ✉️ **Contact** | `contact.html` | Form kirim pesan pengunjung dengan *live character counter* (1000 karakter), validasi interaktif Bootstrap 5, dan feedback notifikasi toast. |
 
-## Teknologi
+### 🌟 Fitur Global
+- 🌓 **Dark / Light Mode**: Tema gelap dan terang yang tersimpan persisten di `localStorage`.
+- 📱 **Fully Responsive**: Tampilan adaptif untuk smartphone, tablet, maupun desktop.
+- 🛡️ **Anti-XSS Security**: Seluruh input teks pengguna dirender secara aman menggunakan `textContent`.
+- ♿ **Aksesibilitas (A11y)**: Struktur semantic HTML5, atribut ARIA, dan tautan *Skip to content*.
 
-- HTML5 semantik, CSS3 (kustom + Bootstrap 5.3), JavaScript vanilla (tanpa build)
-- **Bootstrap 5** (CDN): grid, navbar, modal, tab, validasi form, toast
-- **Bootstrap Icons** dan **Leaflet + OpenStreetMap** untuk peta
-- **DOM scripting**: render galeri dan kartu, filter dan pencarian, modal detail, builder itinerary, daftar komentar
-- **localStorage**: menyimpan mode malam, draft itinerary, itinerary dan komentar buatan pengunjung, serta pesan kontak. Data tersimpan di browser masing-masing pengunjung.
+---
 
-## Struktur
+## 🛠️ Teknologi yang Digunakan
 
-```
-index.html  explore.html  itinerary.html  contact.html
-css/style.css
-js/
-  config.js      <- konfigurasi opsional
-  data.js        <- data tempat + fungsi jam buka (satu sumber untuk semua halaman)
-  store.js       <- penyimpanan data di browser (localStorage)
-  main.js        <- mode malam, toast, komponen kartu bersama
-  home.js  explore.js  itinerary.js  contact.js
-images/
-```
+| Komponen | Teknologi | Keterangan |
+| :--- | :--- | :--- |
+| **Markup & Styling** | HTML5, CSS3, Bootstrap 5.3 | Semantic tags, responsive grid system, styling kustom bernuansa *French Riviera*. |
+| **Scripting** | Vanilla JavaScript (ES6+) | Pure JavaScript tanpa framework/bundler, DOM manipulation, dan modular state. |
+| **Peta Interaktif** | Leaflet.js & OpenStreetMap | Peta interaktif dengan custom pin per kategori dan fallback Esri tiles. |
+| **Penyimpanan Data** | Web Storage API (`localStorage`) | Penyimpanan lokal untuk mode malam, draft, likes, komentar, dan saved itineraries. |
+| **Ikonografi** | Bootstrap Icons | Ikon visual konsisten di seluruh halaman aplikasi. |
 
-## Menjalankan
+---
 
-Tidak perlu `npm install`. Cukup jalankan lewat server lokal supaya peta bisa tampil (server peta menolak halaman yang dibuka langsung dari folder lewat `file://`).
+## 🚀 Cara Menjalankan
 
-**Dengan VS Code:** pasang ekstensi **Live Server**, klik kanan `index.html`, pilih **Open with Live Server**.
+Tidak memerlukan `npm install` atau proses build.
 
-**Dengan terminal** (dari folder proyek):
-
-```bash
-npx serve -l 5500
-```
-
-lalu buka `http://localhost:5500`.
-
-Versi online (GitHub Pages): tulis tautannya di sini setelah diaktifkan.
-
-## Cara kerja data
-
-- Daftar tempat, kategori, jam buka, dan harga ada di `js/data.js`. Menambah tempat cukup menambah satu objek di sana, dan semua halaman ikut memakainya.
-- Status buka/tutup dihitung dari jam di Nice (zona waktu Europe/Paris), termasuk jam musiman untuk beberapa tempat. Tempat yang jam bukanya belum terverifikasi ditandai **Cek jam**.
-- Itinerary dan komentar yang dibuat pengunjung tersimpan di browser masing-masing, dan ada tiga itinerary contoh supaya halaman tidak kosong.
-- Teks dari pengguna selalu ditampilkan dengan `textContent`, bukan `innerHTML`, supaya aman dari XSS.
-
-## Sumber informasi
-
-Jam buka dan harga dikumpulkan dari situs pariwisata resmi Nice C&ocirc;te d'Azur dan beberapa panduan perjalanan pada Oktober-November 2026, dan **bisa berubah**; cek lagi sebelum berkunjung. Posisi pin di peta berupa perkiraan. Peta menggunakan data &copy; kontributor OpenStreetMap, dengan Esri sebagai cadangan.
-
-Daftar tempat wisata mengacu pada daftar destinasi Nice di Wanderlog, dipilih yang terkenal dan banyak fotonya.
-
-## Sumber foto
-
-Semua foto disimpan di folder `images/`. Tempat yang fotonya belum ada akan menampilkan foto cadangan (foto hero). Disarankan lebar foto maksimal sekitar 1400 px agar halaman cepat dimuat.
-
-## Pembuat
-
-Naura Belva Qonita, S1 Sistem Informasi 2024.
+1. Buka folder proyek di **VS Code**.
+2. Jalankan menggunakan ekstensi **Live Server**:
+   - Klik kanan pada `index.html` → pilih **Open with Live Server**.
+3. Atau jalankan via terminal:
+   ```bash
+   npx serve -l 5500
+   ```
+4. Buka browser pada alamat `http://localhost:5500`.
