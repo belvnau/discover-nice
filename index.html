@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Nice | Travel Guide to Nice, France</title>
+  <meta name="description" content="Plan your trip to Nice, French Riviera: explore destinations, craft custom itineraries, and discover curated travel guides.">
+  <script>
+    /* Apply dark mode before render to prevent flash */
+    (function () {
+      try {
+        var t = localStorage.getItem("nice.theme");
+        if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-bs-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-hero">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top site-nav" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Discover <span>Nice</span></a>
+        <div class="nav-actions d-flex align-items-center gap-2 ms-auto order-lg-last">
+          <button class="btn btn-theme" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill" aria-hidden="true"></i></button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="explore.html">Explore</a></li>
+        <li class="nav-item"><a class="nav-link" href="itinerary.html">Itinerary</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="hero-place">French Riviera, France</p>
+        <h1 id="hero-title">Nice</h1>
+        <p class="tagline">Where the sea meets romance.</p>
+        <p class="hero-lead">Explore iconic sights, craft your dream itinerary, and discover travel plans from fellow wanderers. Built for those who cherish savoring the moment.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a class="btn btn-hero-primary" href="explore.html"><i class="bi bi-compass me-2" aria-hidden="true"></i>Explore Places</a>
+          <a class="btn btn-hero-glass" href="itinerary.html#create"><i class="bi bi-pencil-square me-2" aria-hidden="true"></i>Create Itinerary</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts" aria-label="Quick facts about Nice">
+      <div class="container">
+        <dl class="facts-card row row-cols-2 row-cols-lg-4 g-3 text-center mb-0">
+          <div class="col"><dt>Location</dt><dd>Mediterranean Coast, France</dd></div>
+          <div class="col"><dt>Nickname</dt><dd>Nice la Belle</dd></div>
+          <div class="col"><dt>Beaches</dt><dd>Pebbles, Baie des Anges</dd></div>
+          <div class="col"><dt>Transport</dt><dd>Lignes d'Azur tram & bus</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="h-about">
+      <div class="container">
+        <div class="row align-items-center gy-4 gx-lg-5">
+          <div class="col-lg-7">
+            <h2 id="h-about">About Nice</h2>
+            <p>Nice is a vibrant coastal gem nestled along the French Riviera (C&ocirc;te d'Azur) in southeastern France. Its famed shoreline curves along the turquoise waters of the Baie des Anges, crowned by the legendary palm-lined Promenade des Anglais.</p>
+            <p>The historic quarter, Vieux Nice, is a picturesque labyrinth of narrow cobblestone alleyways, pastel-colored facades, lively street markets, and ornate baroque churches. Nice only became part of France in 1860, which gives its architecture, culinary heritage, and relaxed lifestyle a delightful blend of French elegance and Italian warmth.</p>
+            <p>It is the quintessential destination for slow travel: strolling picturesque streets, indulging in artisanal gelato, savoring local socca, and soaking in the Mediterranean sun without any rush.</p>
+          </div>
+          <div class="col-lg-5">
+            <figure class="arch">
+              <img src="images/vieux-nice.jpg" alt="Pastel-colored buildings and narrow alleyways in Vieux Nice" loading="lazy">
+              <figcaption>Vieux Nice, the historic old town brimming with pastel charm.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="h-popular">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+          <h2 id="h-popular" class="mb-0">Popular Places</h2>
+          <a class="btn btn-nice-outline btn-sm" href="explore.html">View all places</a>
+        </div>
+        <div class="row g-4" id="homePlaces" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-itin">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-2">
+          <h2 id="h-itin" class="mb-0">Featured Itineraries</h2>
+          <a class="btn btn-nice-outline btn-sm" href="itinerary.html">View all</a>
+        </div>
+        <p class="text-muted mb-4">Most loved travel guides and plans. Save, copy, or adapt them to match your journey.</p>
+        <div class="row g-4" id="homeItin" aria-live="polite">
+          <div class="col-12 text-muted">Loading itineraries&hellip;</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-photo text-center" aria-labelledby="h-cta">
+      <div class="container text-white">
+        <h2 id="h-cta" class="text-white">Plan your escape to Nice</h2>
+        <p class="mx-auto mb-4">Handpick your favorite destinations from Explore, organize them day by day, and share your plan to inspire fellow travelers.</p>
+        <a class="btn btn-nice px-4 py-2" href="itinerary.html#create"><i class="bi bi-pencil-square me-2" aria-hidden="true"></i>Start Crafting Itinerary</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-3 justify-content-between">
+        <div class="col-md-6 col-lg-5">
+          <p class="mb-1">Created by <strong>Naura Belva Qonita</strong></p>
+          <p class="small text-muted mb-2">Final Project Study Club Front End Basic, KSM Veterantech UPNVJ.</p>
+          <div class="social-links">
+            <a href="mailto:naurabelvaq@gmail.com" aria-label="Send email to Naura" title="Email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/naurablvaa_/" target="_blank" rel="noopener noreferrer" aria-label="Naura's Instagram" title="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav class="col-6 col-md-3" aria-label="Useful links">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="https://www.explorenicecotedazur.com/en/" target="_blank" rel="noopener noreferrer">Official Nice C&ocirc;te d'Azur Tourism Site</a></li>
+          </ul>
+        </nav>
+        <nav class="col-6 col-md-3" aria-label="Footer navigation">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="itinerary.html">Itinerary</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="copyright d-flex flex-wrap justify-content-between gap-2 mb-0">
+        <span>&copy; <span data-year>2026</span> Discover Nice. All rights reserved.</span>
+        <span><a href="#" class="admin-link" hidden>Admin</a></span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
